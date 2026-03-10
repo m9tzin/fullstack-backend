@@ -13,7 +13,7 @@ async def lifespan(app: FastAPI):
     run_sql(
         """
         CREATE TABLE IF NOT EXISTS users (
-            id_users            SERIAL PRIMARY KEY,
+            id_users            INTEGER PRIMARY KEY AUTOINCREMENT, 
             password_users      VARCHAR(255) NOT NULL,
             name_users          VARCHAR(255) NOT NULL,
             email_users         VARCHAR(255) NOT NULL
@@ -65,6 +65,23 @@ def create_users(body: User):
             VALUES('{password_users}', '{name_users}', '{email_users}')
         """
     )
+
+# Rota que executa método GET para buscar um usuário específico by ID
+@router.get("/users/{id_users}")
+def get_user(id_users: int):
+    users = run_sql(f"SELECT * FROM users WHERE id_users = {id_users}")
+
+    if not users:
+        return {"message": "User not found"}
+
+    userInfo = users[0]  # (id_users, password_users, name_users, email_users)
+    id_user, password, name, email = userInfo
+
+    return {
+        "id_users": id_user,
+        "name_users": name,
+        "email_users": email,
+    }
 
 # Check health da API
 @router.get("/health")

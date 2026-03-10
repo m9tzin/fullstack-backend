@@ -8,7 +8,7 @@ Implementar um `CRUD` em FastAPI.
 | --- | --- | --- |
 | C | Create | :white_check_mark: |
 | R | Read (All) | :white_check_mark: |
-| R | Read (id_users) | :x: |
+| R | Read (id_users) | :white_check_mark: |
 | U | Update | :x: |
 | D | Delete | :x: |
 
