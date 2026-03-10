@@ -95,6 +95,11 @@ def update_user(id_users: int, body: User):
     )
 
 
+# Rota que executa o método DELETE para DELETE um user by ID
+@router.delete("/users/{id_users}")
+def delete_user(id_users: int):
+    return run_sql(f"DELETE FROM users WHERE id_users = {id_users}")
+
 
 # Check health da API
 @router.get("/health")
