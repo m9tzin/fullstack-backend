@@ -62,7 +62,7 @@ http://127.0.0.1:8000
   
 - [Artigo Medium](https://medium.com/@guilhermehuther/back-end-basics-e9a2ed1f244a)
   
-- [Postman - Vizualizar funcionamento da API](https://learning.postman.com/)
+- [Postman - Visualizar funcionamento da API](https://learning.postman.com/)
 
 - [SQLite Viewer - Florian Klampfer](https://marketplace.visualstudio.com/items/?itemName=qwtel.sqlite-viewer)
 

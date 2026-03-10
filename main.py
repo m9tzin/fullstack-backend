@@ -83,10 +83,23 @@ def get_user(id_users: int):
         "email_users": email,
     }
 
+# Rota que executa método PUT para UPDATE um usuário específico by ID
+@router.put("/users/{id_users}")
+def update_user(id_users: int, body: User):
+    # extraindo dados do body padrao
+    password_users, name_users, email_users = body.password_users, body.name_users, body.email_users
+    return run_sql(
+        f"""
+            UPDATE users SET password_users = '{password_users}', name_users = '{name_users}', email_users = '{email_users}' WHERE id_users = {id_users}
+        """
+    )
+
+
+
 # Check health da API
 @router.get("/health")
 def health_check():
-    return {"status": "API is running"}
+    return {"status": "alive :)"}
 
 #Registra as rotas dentro do app
 app.include_router(router=router)
