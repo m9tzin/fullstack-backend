@@ -66,5 +66,10 @@ def create_users(body: User):
         """
     )
 
+# Check health da API
+@router.get("/health")
+def health_check():
+    return {"status": "API is running"}
+
 #Registra as rotas dentro do app
 app.include_router(router=router)
